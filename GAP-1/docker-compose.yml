@@ -45,8 +45,8 @@ services:
       - grafana_data:/var/lib/grafana
       - ./grafana/dashboards:/var/lib/grafana/dashboards
       - ./grafana/provisioning:/etc/grafana/provisioning
-    env_file:
-      - config.monitoring
+#    env_file:
+#      - config.monitoring
 
   blackbox_exporter:
     image: prom/blackbox-exporter:latest

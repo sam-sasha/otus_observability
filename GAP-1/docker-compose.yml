@@ -55,7 +55,7 @@ services:
     volumes:
       - ./blackboxexporter/:/etc/blackboxexporter/
     command:
-      - '--config.file=/etc/blackboxexporter/config.yml'
+      - '--config.file=/etc/blackboxexporter/blackboxconfig.yml'
     restart: always
 
   pushgateway:

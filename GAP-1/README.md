@@ -75,7 +75,7 @@
 
 Установил prometheus, grafana, black_box_exporter и node_exporter.
 
-Настроил сбор метрик посредствам prometheus. Визуализацию в Grafana.
+Настроил сбор метрик посредством prometheus. Визуализацию в Grafana.
 
 Приложены файлы кофигурации prometheus.yml, docker-compose.yml, blackboxconfig.yml 
 

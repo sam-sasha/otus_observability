@@ -61,9 +61,12 @@
 ##
 ![Alt text](../img/prom_graf.png?raw=true "BitrixDock")
 
-## Ручная установка виртуальной машины с prometheus grafana
-На второй машине разворачиваем систему мониторинга
-Так же установил prometheus, black_box_exporter и node_exporter.
-Настроил сбор метрик посредствам prometheus, файл кофигурации prometheus.yml
+## На второй машине разворачиваем систему мониторинга с prometheus grafana
+
+Установил prometheus, grafana, black_box_exporter и node_exporter.
+
+Настроил сбор метрик посредствам prometheus. Визуализацию в Grafana.
+
+Приложены файлы кофигурации prometheus.yml, docker-compose.yml, blackboxconfig.yml 
 
 

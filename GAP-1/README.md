@@ -1,9 +1,10 @@
-![Alt text](img/logo.jpg?raw=true "BitrixDock")
+![Alt text](../img/logo.jpg?raw=true "BitrixDock")
 
 ## Ручная установка виртуальной машины 
 ### Выполните настройку окружения с веб окружением
 
 Скачайте репозиторий `git clone https://github.com/bitrixdock/bitrixdock.git`
+
 Скопируйте файл `.env_template` в `.env`
 
 Внесите изменения в docker-compose.yml

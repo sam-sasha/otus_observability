@@ -13,9 +13,13 @@
 ### Выполните настройку окружения с веб окружением 
 
 Установил Ubuntu 24.04 LTS на HyperV.
+
 Произвел первичную настройку системы, пользователя и ПО.
+
 Установил docker, docker-compose.
+
 С помощью docker-compose установил и настроил CMS Bitrix с БД MySQL. (Далее все устанавливается с помощью docker-compose)
+
 Установил и настроил mysqld-exporter. 
 
 Скачайте репозиторий `git clone https://github.com/bitrixdock/bitrixdock.git`
@@ -64,9 +68,13 @@
 ## На второй машине разворачиваем систему мониторинга с prometheus grafana vm2
 
 Установил Ubuntu 24.04 LTS на HyperV.
+
 Произвел первичную настройку системы, пользователя и ПО.
+
 Установил docker, docker-compose.
+
 Установил prometheus, grafana, black_box_exporter и node_exporter.
+
 Настроил сбор метрик посредствам prometheus. Визуализацию в Grafana.
 
 Приложены файлы кофигурации prometheus.yml, docker-compose.yml, blackboxconfig.yml 

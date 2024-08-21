@@ -61,10 +61,12 @@
 ##
 ![Alt text](../img/prom_graf.png?raw=true "BitrixDock")
 
-## На второй машине разворачиваем систему мониторинга с prometheus grafana
+## На второй машине разворачиваем систему мониторинга с prometheus grafana vm2
 
+Установил Ubuntu 24.04 LTS на HyperV.
+Произвел первичную настройку системы, пользователя и ПО.
+Установил docker, docker-compose.
 Установил prometheus, grafana, black_box_exporter и node_exporter.
-
 Настроил сбор метрик посредствам prometheus. Визуализацию в Grafana.
 
 Приложены файлы кофигурации prometheus.yml, docker-compose.yml, blackboxconfig.yml 

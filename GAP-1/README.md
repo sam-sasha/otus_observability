@@ -1,12 +1,28 @@
+## Задача
+
+На виртуальной машине установите любую open source CMS, которая включает в себя следующие компоненты: nginx, php-fpm, database (MySQL or Postgresql)
+
+На этой же виртуальной машине установите Prometheus exporters для сбора метрик со всех компонентов системы (начиная с VM и заканчивая DB, не забудьте про blackbox exporter, который будет проверять доступность вашей CMS)
+
+На этой же или дополнительной виртуальной машине установите Prometheus, задачей которого будет раз в 5 секунд собирать метрики с экспортеров.
+
+## Решение
 ![Alt text](../img/logo.jpg?raw=true "BitrixDock")
 
-## Ручная установка виртуальной машины 
-### Выполните настройку окружения с веб окружением
+## Ручная установка виртуальной машины vm1
+### Выполните настройку окружения с веб окружением 
+
+Установил Ubuntu 24.04 LTS на HyperV.
+Произвел первичную настройку системы, пользователя и ПО.
+Установил docker, docker-compose.
+С помощью docker-compose установил и настроил CMS Bitrix с БД MySQL. (Далее все устанавливается с помощью docker-compose)
+Установил и настроил mysqld-exporter. 
 
 Скачайте репозиторий `git clone https://github.com/bitrixdock/bitrixdock.git`
 
 Скопируйте файл `.env_template` в `.env`
 
+### Добавление mysql-exporter
 Внесите изменения в docker-compose.yml
 ````
     mysqld-exporter:
@@ -41,3 +57,13 @@
       networks:
         - bitrixdock
 ````
+
+##
+![Alt text](../img/prom_graf.png?raw=true "BitrixDock")
+
+## Ручная установка виртуальной машины с prometheus grafana
+На второй машине разворачиваем систему мониторинга
+Так же установил prometheus, black_box_exporter и node_exporter.
+Настроил сбор метрик посредствам prometheus, файл кофигурации prometheus.yml
+
+

@@ -54,7 +54,7 @@ grafana:
       - --web.console.templates=/usr/share/prometheus/consoles
     volumes:
       - ./config/prometheus.yaml:/etc/prometheus/prometheus.yml
-      - ../../../../../operations/mimir-mixin-compiled/rules.yaml:/etc/prometheus/rules.yaml
+      - ../config/rules.yaml:/etc/prometheus/rules.yaml
     ports:
       - 9090:9090
     depends_on:

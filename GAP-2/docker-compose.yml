@@ -47,7 +47,7 @@ services:
       - --web.console.templates=/usr/share/prometheus/consoles
     volumes:
       - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
-      - ../../../../../operations/mimir-mixin-compiled/rules.yml:/etc/prometheus/rules.yml
+      - ./config//rules.yml:/etc/prometheus/rules.yml
     depends_on:
       - "mimir-1"
       - "mimir-2"

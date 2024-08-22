@@ -70,13 +70,13 @@ services:
       
   mimir-1:
     image: grafana/mimir:latest
-    command: ["-config.file=/etc/mimir.yaml"]
+    command: ["-config.file=/etc/mimir.yml"]
     hostname: mimir-1
     depends_on:
       - minio
     volumes:
-      - ./config/mimir.yaml:/etc/mimir.yaml
-      #- ./config/alertmanager-fallback-config.yaml:/etc/alertmanager-fallback-config.yaml
+      - ./config/mimir.yaml:/etc/mimir.yml
+      #- ./config/alertmanager-fallback-config.yaml:/etc/alertmanager-fallback-config.yml
       - mimir-1-data:/data
 # volumes:
 #  mimir-1-data:

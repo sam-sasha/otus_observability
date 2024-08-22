@@ -20,7 +20,7 @@ git clone https://github.com/grafana/mimir.git
 Перейдите в каталог руководства:
 
 ````
-cd mimir/docs/sources/tutorials/play-with-grafana-mimir/
+cd mimir/docs/sources/mimir/get-started/play-with-grafana-mimir/
 ````
 Запустите MinIO, Mimir, Prometheus, Grafana и NGINX
 

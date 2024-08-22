@@ -11,7 +11,7 @@ Metrics retention - 2 weeks
 ## Решение
 ![Alt text](../img/minio.png?raw=true "Minio")
 
-### Устанавливаем хранилища на базе Minio
+### Устанавливаем хранилище на базе Minio
 
 Чтобы развернуть Distributed MinIO на Docker Compose, загрузите docker-compose.yaml и nginx.conf  из папки  minio в текущий рабочий каталог.  Затем выполните одну из следующих команд
 

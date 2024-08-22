@@ -22,28 +22,20 @@ blocks_storage:
 
 # Use memberlist, a gossip-based protocol, to enable the 3 Mimir replicas to communicate
 memberlist:
-  join_members: [mimir-1]
+  join_members: [mimir-1, mimir-2, mimir-3]
 
-#ruler:
-#  rule_path: /data/ruler
-#  alertmanager_url: http://127.0.0.1:8080/alertmanager
-#  ring:
-#    # Quickly detect unhealthy rulers to speed up the tutorial.
-#    heartbeat_period: 2s
-#    heartbeat_timeout: 10s
+ruler:
+  rule_path: /data/ruler
+  alertmanager_url: http://127.0.0.1:8080/alertmanager
+  ring:
+    # Quickly detect unhealthy rulers to speed up the tutorial.
+    heartbeat_period: 2s
+    heartbeat_timeout: 10s
 
-#alertmanager:
-#  data_dir: /data/alertmanager
-#  fallback_config_file: /etc/alertmanager-fallback-config.yaml
-#  external_url: http://localhost:9009/alertmanager
+alertmanager:
+  data_dir: /data/alertmanager
+  fallback_config_file: /etc/alertmanager-fallback-config.yaml
+  external_url: http://localhost:9009/alertmanager
 
 server:
   log_level: warn
-
-
-limits:
-  compactor_blocks_retention_period: 4d
-  max_global_series_per_user: 1000000
-  ingestion_rate: 100000
-  ingestion_burst_size: 2000000
-  max_label_names_per_series: 40

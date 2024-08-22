@@ -52,6 +52,8 @@ services:
       - "mimir-1"
       - "mimir-2"
       - "mimir-3"
+    ports:
+      - 9090:9090      
 
   load-balancer:
     image: nginx:latest

@@ -5,33 +5,25 @@ datasources:
     type: prometheus
     access: proxy
     orgId: 1
-    url: http://192.168.1.58:9090
+    url: http://load-balancer:9009/prometheus
     version: 1
     editable: true
     jsonData:
       httpHeaderName1: "X-Scope-OrgID"
       alertmanagerUid: "alertmanager"
     secureJsonData:
-      httpHeaderValue1: "infitx"
+      httpHeaderValue1: "demo"
     isDefault: true
-  - name: Prometheus
-    type: prometheus
+  - name: Mimir Alertmanager
+    uid: alertmanager
+    type: alertmanager
     access: proxy
     orgId: 1
-    url: http://prometheus:9090
+    url: http://load-balancer:9009/
     version: 1
     editable: true
-    isDefault: false
-  #- name: Mimir Alertmanager
-  #  uid: alertmanager
-  #  type: alertmanager
-  #  access: proxy
-  #  orgId: 1
-  #  url: http://load-balancer:9009/
-  #  version: 1
-  #  editable: true
-  #  jsonData:
-  #    httpHeaderName1: "X-Scope-OrgID"
-  #    implementation: "cortex"
-  #  secureJsonData:
-  #    httpHeaderValue1: "infitx"
+    jsonData:
+      httpHeaderName1: "X-Scope-OrgID"
+      implementation: "cortex"
+    secureJsonData:
+      httpHeaderValue1: "demo"

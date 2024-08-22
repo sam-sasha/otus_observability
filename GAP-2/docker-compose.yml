@@ -46,8 +46,8 @@ services:
       - --web.console.libraries=/usr/share/prometheus/console_libraries
       - --web.console.templates=/usr/share/prometheus/consoles
     volumes:
-      - ./config/prometheus.yaml:/etc/prometheus/prometheus.yml
-      - ../../../../../operations/mimir-mixin-compiled/rules.yaml:/etc/prometheus/rules.yml
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ../../../../../operations/mimir-mixin-compiled/rules.yml:/etc/prometheus/rules.yml
     depends_on:
       - "mimir-1"
       - "mimir-2"
@@ -71,8 +71,8 @@ services:
     depends_on:
       - minio
     volumes:
-      - ./config/mimir.yaml:/etc/mimir.yml
-      - ./config/alertmanager-fallback-config.yaml:/etc/alertmanager-fallback-config.yml
+      - ./config/mimir.yml:/etc/mimir.yml
+      - ./config/alertmanager-fallback-config.yml:/etc/alertmanager-fallback-config.yml
       - mimir-1-data:/data
 
   mimir-2:
@@ -82,8 +82,8 @@ services:
     depends_on:
       - minio
     volumes:
-      - ./config/mimir.yaml:/etc/mimir.yml
-      - ./config/alertmanager-fallback-config.yaml:/etc/alertmanager-fallback-config.yml
+      - ./config/mimir.yml:/etc/mimir.yml
+      - ./config/alertmanager-fallback-config.yml:/etc/alertmanager-fallback-config.yml
       - mimir-2-data:/data
 
   mimir-3:
@@ -93,8 +93,8 @@ services:
     depends_on:
       - minio
     volumes:
-      - ./config/mimir.yaml:/etc/mimir.yml
-      - ./config/alertmanager-fallback-config.yaml:/etc/alertmanager-fallback-config.yml
+      - ./config/mimir.yml:/etc/mimir.yml
+      - ./config/alertmanager-fallback-config.yml:/etc/alertmanager-fallback-config.yml
       - mimir-3-data:/data
 
 volumes:

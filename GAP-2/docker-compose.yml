@@ -68,5 +68,8 @@ grafana:
       - minio
     volumes:
       - ./config/mimir.yaml:/etc/mimir.yaml
-#      - ./config/alertmanager-fallback-config.yaml:/etc/alertmanager-fallback-config.yaml
+#     - ./config/alertmanager-fallback-config.yaml:/etc/alertmanager-fallback-config.yaml
       - mimir-1-data:/data
+
+volumes:
+  mimir-1-data:

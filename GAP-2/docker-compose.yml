@@ -42,4 +42,4 @@ grafana:
       - ./dashboards/mimir-top-tenants.json:/var/lib/grafana/dashboards/mimir-top-tenants.json:ro
       - ./dashboards/mimir-writes.json:/var/lib/grafana/dashboards/mimir-writes.json:ro
     ports:
-      - 9000:3000
+      - 3000:3000

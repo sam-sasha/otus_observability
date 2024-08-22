@@ -34,7 +34,7 @@ ruler:
 
 alertmanager:
   data_dir: /data/alertmanager
-  fallback_config_file: /etc/alertmanager-fallback-config.yaml
+  fallback_config_file: /etc/alertmanager-fallback-config.yml
   external_url: http://localhost:9009/alertmanager
 
 server:

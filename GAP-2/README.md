@@ -14,13 +14,13 @@ Metrics retention - 2 weeks
 Создайте копию репозитория Grafana Mimir с помощью командной строки Git:
 
 ````
-git clone https://github.com/grafana/mimir.git
+git clone https://github.com/sam-sasha/otus_observability.git
 ````
 
-Перейдите в каталог руководства:
+Перейдите в каталог задачи GAP-2:
 
 ````
-cd mimir/docs/sources/mimir/get-started/play-with-grafana-mimir/
+cd GAP-2
 ````
 Запустите MinIO, Mimir, Prometheus, Grafana и NGINX
 
@@ -32,8 +32,15 @@ docker compose up -d
 
 На хосте  открыты следующие порты:
 
-Grafana к записи http://localhost:9000
+Grafana к записи http://ip:9000
 
-Grafana Mimir на http://localhost:9009
+Grafana Mimir на http://ip:9009
+
+Prometheus на http://ip:9090
+
+Minio http://ip:9000
 
 Файлы конфигурации Grafana Mimir, вы можете просмотреть .config/mimir.yaml
+
+Проверяем лейбл site: prod
+![Alt text](../img/label.jpg?raw=true "mimir")

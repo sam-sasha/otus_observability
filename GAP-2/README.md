@@ -42,5 +42,33 @@ Minio http://ip:9000
 
 Файлы конфигурации Grafana Mimir, вы можете просмотреть .config/mimir.yaml
 
+### Как навесить дополнительных меток хостам
+
+правим prometheus.yml
+
+```
+scrape_configs:
+  - job_name: demo/mimir
+    static_configs:
+      - targets: ["mimir-1:8080"]
+        labels:
+          site: prod
+          pod: "mimir-1"
+      - targets: ["mimir-2:8080"]
+        labels:
+          site: prod
+          pod: "mimir-2"
+      - targets: ["mimir-3:8080"]
+        labels:
+          site: prod
+          pod: "mimir-3"
+```
+
+Перезапускаем prometheus
+
+```
+curl -X POST :9090/-/reload
+```
+        
 Проверяем лейбл site: prod
 ![Alt text](../img/label.jpg?raw=true "mimir")

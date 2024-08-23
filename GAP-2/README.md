@@ -42,6 +42,10 @@ Minio http://ip:9000
 
 Файлы конфигурации Grafana Mimir, вы можете просмотреть .config/mimir.yaml
 
+Файлы конфигурации promrtheus , вы можете просмотреть .config/prometheus.yml
+
+...
+
 ### Как навесить дополнительных меток хостам
 
 правим prometheus.yml
@@ -72,3 +76,14 @@ curl -X POST :9090/-/reload
         
 Проверяем лейбл site: prod
 ![Alt text](../img/label.jpg?raw=true "mimir")
+
+
+### Как долго Prometheus должен хранить метрики
+
+Есть две опции:
+
+--storage.tsdb.retention.time=..  определяет как долго Prometheus будет хранить собранные метрики.
+
+--storage.tsdb.retention.size=..  определяет сколько дискового пространства Prometheus может использовать под метрики.
+
+Выставляем соответствующие значения, перезапкскаем прометеус. 

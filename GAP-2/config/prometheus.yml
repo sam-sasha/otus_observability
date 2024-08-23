@@ -27,10 +27,9 @@ scrape_configs:
   - job_name: node-exporter
     scrape_interval: 5s
     static_configs:
-      - targets:
+      - targets: ["node-exporter:9100"]
         labels:
           site: prod
-          - 'node-exporter:9100'
     metrics_path: /metrics  
 
 remote_write:

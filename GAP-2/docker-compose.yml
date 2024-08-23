@@ -37,6 +37,7 @@ services:
       - ./dashboards/mimir-tenants.json:/var/lib/grafana/dashboards/mimir-tenants.json:ro
       - ./dashboards/mimir-top-tenants.json:/var/lib/grafana/dashboards/mimir-top-tenants.json:ro
       - ./dashboards/mimir-writes.json:/var/lib/grafana/dashboards/mimir-writes.json:ro
+      - ./dashboards/1860_rev37.json:/var/lib/grafana/dashboards/1860_rev37.json:ro
     ports:
       - 3000:3000
 

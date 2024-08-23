@@ -13,12 +13,15 @@ scrape_configs:
     static_configs:
       - targets: ["mimir-1:8080"]
         labels:
+          site: prod
           pod: "mimir-1"
       - targets: ["mimir-2:8080"]
         labels:
+          site: prod
           pod: "mimir-2"
       - targets: ["mimir-3:8080"]
         labels:
+          site: prod
           pod: "mimir-3"
 
 remote_write:

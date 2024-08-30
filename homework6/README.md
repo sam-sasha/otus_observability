@@ -200,3 +200,8 @@ curl -H  'Content-Type: application/json' -d '[{"labels":{"alertname":"это п
 Видим в Алертменеджере данные 
 
 ![Alt text](../img/smtp_alert.jpg?raw=true "smtp_alert")
+
+в почтовом ящике вилим сообщение
+
+![Alt text](../img/smtp_alert_mail.jpg?raw=true "smtp_alert_mail")
+

@@ -5,7 +5,7 @@ networks:
 volumes:
   prometheus_data: {}
   grafana_data: {}
-#  alertmanager-data: {}
+  alertmanager-data: {}
 
 services:
   node-exporter:
@@ -39,15 +39,18 @@ services:
       - '--web.console.libraries=/etc/prometheus/console_libraries'
       - '--web.console.templates=/etc/prometheus/consoles'
       - '--web.enable-lifecycle'
+    expose:
+      - 9090
     ports:
       - 9090:9090
     networks:
       - monitoring
+
   blackbox:
     image: prom/blackbox-exporter:latest
     # privileged: true
     restart: unless-stopped
-    container_name: Blackbox
+    container_name: blackbox
     volumes:
       - ./blackbox/blackbox.yml:/etc/blackbox_exporter/config.yml
     ports:
@@ -66,19 +69,20 @@ services:
     image: grafana/grafana:latest
     container_name: grafana
     volumes:
-      - ./grafana/provisioning/dashboards/provisioning-dashboards.yml:/etc/grafana/provisioning/dashboards/provisioning-dashboards.yml:ro
+#      - ./grafana/provisioning/dashboards/provisioning-dashboards.yml:/etc/grafana/provisioning/dashboards/provisioning-dashboards.yml:ro
+#      - ./grafana/provisioning/datasources/datasource.yml:/etc/grafana/provisioning/datasourses/datasource.yml:ro
       - grafana_data:/var/lib/grafana
-      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
-      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
-      - ./grafana/provisioning/dashboards/1860_rev37.json:/var/lib/grafana/dashboards/1860_rev37.json:ro
-      - ./grafana/provisioning/dashboards/1860_rev37.json:/var/lib/grafana/dashboards/13659_rev1.json:ro
+#      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards/
+      - ./grafana/provisioning:/etc/grafana/provisioning/
+#      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources/
+#      - ./grafana/provisioning/dashboards/1860_rev37.json:/var/lib/grafana/provisioning/dashboards/1860_rev37.json:ro
+#      - ./grafana/provisioning/dashboards/13659_rev1.json:/var/lib/grafana/provisioning/dashboards/13659_rev1.json:ro
+#      - ./grafana/provisioning/dashboards/blackbox.json:/var/lib/grafana/provisioning/dashboards/blackbox.json:ro
     environment:
       - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
       - GF_USERS_ALLOW_SIGN_UP=false
     restart: unless-stopped
-    expose:
-      - 3000
     ports:
       - 3000:3000
     networks:

@@ -135,5 +135,68 @@ curl -H  'Content-Type: application/json' -d '[{"labels":{"alertname":"это п
 ![Alt text](../img/telega_alert.jpg?raw=true "telega_alert")
 
 
+### Использование почтового отправителя
 
+В файле настроек alertmanager/config.yml Добавляем второй отправитель alertmanager-smtp:
 
+````
+global:
+ resolve_timeout: 5m
+ telegram_api_url: "https://api.telegram.org"
+
+templates:
+  - '/etc/alertmanager/*.tmpl'
+
+receivers:
+ - name: blackhole
+ - name: telegram-test
+   telegram_configs:
+    - chat_id: -1002171684793 #"ID вашего чата без кавычек"
+      bot_token: 6615053934:AAFBcdWr8jjEdATlVcEmSVvXP25FTi7GvbU #"Ваш токен без кавычек"
+      api_url: "https://api.telegram.org"
+      send_resolved: true
+      parse_mode: HTML
+      message: '{{ template "telegram.default" . }}'
+ - name: alertmanager-smtp
+   email_configs:
+   - to: 'a.petunin@2bservice.ru'
+     from: 'alert@otushomework.net'
+     smarthost: 'mx.2bservice.ru:25'
+     require_tls: false
+
+route:
+# group_by: ['ds_id'] # Алерты группируются по UUID кластера.
+ group_by: ['alertname', 'severity']
+ group_wait: 15s
+ group_interval: 30s
+ repeat_interval: 30m
+ receiver: telegram-test
+ routes:
+  - receiver: telegram-test
+    continue: true
+    matchers:
+     - severity="critical"
+  - receiver: alertmanager-smtp
+    continue: true
+    matchers:
+     - severity="warning"
+  - receiver: blackhole
+    matchers:
+     - alertname="Watchdog"
+````
+
+Пересоздаем контейнеры:
+
+````
+docker stop  $(docker ps -qa) && docker rm  $(docker ps -qa)
+docker compose up -d
+````
+
+Отправляем тестовое сообщение с меткой warning
+
+````
+curl -H  'Content-Type: application/json' -d '[{"labels":{"alertname":"это проверка доставки алерта", "severity":"warning" }}]' http://127.0.0.1:9093/api/v2/alerts
+````
+Видим в Алертменеджере данные 
+
+![Alt text](../img/smtp_alert.jpg?raw=true "smtp_alert")

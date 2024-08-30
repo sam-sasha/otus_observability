@@ -33,7 +33,7 @@ Alertmanager должен уметь отправлять алерты с severi
       org.label-schema.group: "monitoring"
 ````
 
-В файле настроек alertmanager/config.yml устанавливаеи каналы отправкиВ разделе receivers описаны получатели сообщений:
+В файле настроек alertmanager/config.yml устанавливаем каналы отправкиВ разделе receivers описаны получатели сообщений:
 
 blackhole —  пустой получатель, который игнорирует все сообщения;
 telegram-test — получатель, который отправляет сообщения в Telegram.

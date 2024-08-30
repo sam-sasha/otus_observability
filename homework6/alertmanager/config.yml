@@ -1,28 +1,34 @@
 global:
  resolve_timeout: 5m
  telegram_api_url: "https://api.telegram.org"
-  # The smarthost and SMTP sender used for mail notifications.
-  #smtp_smarthost: 'localhost:25'
-  #smtp_from: 'alertmanager@example.org'
 
-route:
-  receiver: "blackhole"
-  group_wait: 30s
-  group_interval: 5m
-  repeat_interval: 1h
-  group_by: ['alertname', 'severity']
+templates:
+  - '/etc/alertmanager/*.tmpl'
 
 receivers:
-  - name: 'telegram1'
-    telegram_configs:
-    - chat_id: -1002183314869
-      parse_mode: "HTML"
-      #api_url: core.telegram.org/bots/api
-      bot_token: '****'
-  - name: 'telegram2'
-    telegram_configs:
-    - chat_id: -1111002154694041
-      parse_mode: "HTML"
-      #api_url: core.telegram.org/bots/api
-      bot_token: '***'
-  - name: 'blackhole'
+ - name: blackhole
+ - name: telegram-test
+   telegram_configs:
+    - chat_id: -1002171684793 #"ID вашего чата без кавычек"
+      bot_token: 1234567890 #"Ваш токен без кавычек"
+      api_url: "https://api.telegram.org"
+      send_resolved: true
+      parse_mode: HTML
+      message: '{{ template "telegram.default" . }}'
+
+
+route:
+# group_by: ['ds_id'] # Алерты группируются по UUID кластера.
+ group_by: ['alertname', 'severity']
+ group_wait: 15s
+ group_interval: 30s
+ repeat_interval: 30m
+ receiver: telegram-test
+ routes:
+  - receiver: telegram-test
+    continue: true
+    matchers:
+     - severity="critical"
+  - receiver: blackhole
+    matchers:
+     - alertname="Watchdog"

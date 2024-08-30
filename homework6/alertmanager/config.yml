@@ -1,0 +1,28 @@
+global:
+ resolve_timeout: 5m
+ telegram_api_url: "https://api.telegram.org"
+  # The smarthost and SMTP sender used for mail notifications.
+  smtp_smarthost: 'localhost:25'
+  smtp_from: 'alertmanager@example.org'
+
+route:
+  receiver: "blackhole"
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  group_by: ['alertname', 'severity']
+
+receivers:
+  - name: 'telegram1'
+    telegram_configs:
+    - chat_id: -1002183314869
+      parse_mode: "HTML"
+      #api_url: core.telegram.org/bots/api
+      bot_token: '****'
+  - name: 'telegram2'
+    telegram_configs:
+    - chat_id: -1111002154694041
+      parse_mode: "HTML"
+      #api_url: core.telegram.org/bots/api
+      bot_token: '***'
+  - name: 'blackhole'

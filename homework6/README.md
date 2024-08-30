@@ -205,4 +205,4 @@ curl -H  'Content-Type: application/json' -d '[{"labels":{"alertname":"это п
 
 ![Alt text](../img/smtp_alert_mail.jpg?raw=true "smtp_alert_mail")
 
-Итог Отправка сообщений с разным уровнем критичности идет по разным каналам.
+Итог: Отправка сообщений с разным уровнем критичности идет по разным каналам.

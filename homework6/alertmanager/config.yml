@@ -1,4 +1,4 @@
-global:
+  GNU nano 7.2                                                                                                                                                              alertmanager/config.yml                                                                                                                                                                        global:
  resolve_timeout: 5m
  telegram_api_url: "https://api.telegram.org"
 
@@ -15,7 +15,12 @@ receivers:
       send_resolved: true
       parse_mode: HTML
       message: '{{ template "telegram.default" . }}'
-
+ - name: alertmanager-smtp
+   email_configs:
+   - to: 'test@test.ru'
+     from: 'alert@otushomework.net'
+     smarthost: 'mx.2bservice.ru:25'
+     require_tls: false
 
 route:
 # group_by: ['ds_id'] # Алерты группируются по UUID кластера.
@@ -29,6 +34,10 @@ route:
     continue: true
     matchers:
      - severity="critical"
+  - receiver: alertmanager-smtp
+    continue: true
+    matchers:
+     - severity="warning"
   - receiver: blackhole
     matchers:
      - alertname="Watchdog"

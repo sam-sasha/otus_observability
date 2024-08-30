@@ -128,7 +128,7 @@ docker-compose up -d
 Для проверки отбивок можно использоватькоманду
 
 ````
-curl -H  'Content-Type: application/json' -d '[{"labels":{"alertname":"это проверка доставки алерта3", "severity":"warning" }}]' http://127.0.0.1:9093/api/v2/alerts
+curl -H  'Content-Type: application/json' -d '[{"labels":{"alertname":"это проверка доставки алерта3", "severity":"critical" }}]' http://127.0.0.1:9093/api/v2/alerts
 ````
 Если все правильно настроено, в телеграм должно прийти сообщение.
 

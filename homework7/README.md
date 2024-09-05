@@ -20,6 +20,21 @@
 ## Решение 
 
 
+Добавлены две папки 
+
+infra (CPU, RAM, Network, etc.)
+
+Dashboard с данными node-exporters с (CPU, RAM, Network, etc.) 
+![Alt text](../img/infra.jpg?raw=true "infra")
 
 
+
+app (доступность компонентов, время ответа, etc.)
+
+Dashboard с данными blackbox (доступность компонентов, время ответа, etc.)
+![Alt text](../img/app.jpg?raw=true "app")
+
+Дополнительно добавлен дашбоард с выпадающим меню по нагрузке по помяти контейнеров.
+
+![Alt text](../img/drilldown.jpg?raw=true "drilldown")
 

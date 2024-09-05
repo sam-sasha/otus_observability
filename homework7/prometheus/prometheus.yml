@@ -71,7 +71,7 @@ scrape_configs:
       - targets: ['grafana:3000']
 
   - job_name: 'alertmanager' 
-      static_configs:
+    static_configs:
       - targets: ['alertmanager:9093']
 
   - job_name: 'postgres_exporter'

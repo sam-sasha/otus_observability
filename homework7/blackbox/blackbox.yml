@@ -49,3 +49,13 @@ modules:
     timeout: 5s
     icmp:
       ttl: 5
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: false
+
+  icmp_64kb:
+    prober: icmp
+    timeout: 5s
+    icmp:
+      preferred_ip_protocol: ip4
+      ip_protocol_fallback: false
+      payload_size: 64000

@@ -3,7 +3,7 @@
 - [Official Zabbix Dockerfiles](https://github.com/zabbix/zabbix-docker)
 - [Zabbix plugin for Grafana dashboard](https://github.com/grafana/grafana-zabbix)
 
-![scheme](./img/scheme.excalidraw.png)
+![scheme](../img/scheme.excalidraw.png)
 
 For those who are used to using zabbix to collect metrics, but want to start drawing dashboards more beautifully
 
@@ -19,7 +19,7 @@ Example simple docker-compose service
 
 ### Clone repo:
 ```
-git clone https://github.com/akmalovaa/zabbix-docker.git
+git clone https://github.com/sam-sasha/otus_observability.git
 cd zabbix-docker
 ```
 
@@ -39,7 +39,7 @@ default user password
 
 
 **Zabbix server** - Host / change use connect from DNS `zabbix-agent`
-![zabbix-agent](./img/zabbix-agent-settings.png)
+![zabbix-agent](../img/zabbix-agent-settings.png)
 
 ### Grafana `localhost:3000`
 
@@ -50,7 +50,7 @@ default user password (change `grafana/grafana.ini` auth.anonymous enabled)
 Test data source
 
 `Grafana -> Connections -> Data sources -> zabbix -> Test`
-![zabbix-agent](./img/data-source-test.png)
+![zabbix-agent](../img/data-source-test.png)
 
 ### Debug
 ```

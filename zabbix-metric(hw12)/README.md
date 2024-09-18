@@ -50,7 +50,53 @@ done
 ````
 
 ###
-Создаем темплейт поиска метрик и добавления итемов и триггеров. 
+## Создаем темплейт поиска метрик и добавления итемов и триггеров. 
 
 ![Alt text](../img/discovery4.jpg?raw=true "discovery4")
+
+Нстройки поиска
+
+![Alt text](../img/discovery1.jpg?raw=true "discovery1")
+
+Настройки итемов
+
+![Alt text](../img/discovery2.jpg?raw=true "discovery2")
+
+Настройки Триггеров
+
+![Alt text](../img/discovery3.jpg?raw=true "discovery3")
+
+
+###
+
+## Добавляем хост и привязываем к нему Темплейт
+
+Сам хост
+![Alt text](../img/host1.jpg?raw=true "host1")
+
+Найденные Итемы
+![Alt text](../img/host2.jpg?raw=true "host2")
+
+Найденные Триггеры
+![Alt text](../img/host3.jpg?raw=true "host3")
+
+
+Проверяем поток данных полученных из генерации
+
+![Alt text](../img/host_data1.jpg?raw=true "host_data1")
+
+![Alt text](../img/host_data2.jpg?raw=true "host_data2")
+
+
+
+###
+
+## Проверяем срабатывание триггеров
+
+Триггеры срабатывают,отправка происходит
+![Alt text](../img/trigger1.jpg?raw=true "host_trigger1")
+
+Доставка в телеграм канал производтится
+
+![Alt text](../img/trigger2.jpg?raw=true "host_trigger2")
 

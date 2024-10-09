@@ -35,5 +35,9 @@
  ![Alt text](../img/system1.jpg?raw=true "system1")
  ![Alt text](../img/nginx.jpg?raw=true "nginx")
  ![Alt text](../img/mysql.jpg?raw=true "mysql")
+
+ 6) Настройм правила алертинга для черезмерного потребления ресурсов, падения компонентов CMS и 500х ошибок;
+     ![Alt text](../img/alert-kapas.jpg?raw=true "alert-kapas")
+      ![Alt text](../img/alert-kapas1.jpg?raw=true "alert-kapas1")
  
  

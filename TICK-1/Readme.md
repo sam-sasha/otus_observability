@@ -12,4 +12,6 @@
 6. Настройте правила алертинга для черезмерного потребления ресурсов, падения компонентов CMS и 500х ошибок;
 
    ## Решение
-   
+
+ Устанавливаем LEMP по инструкции  https://github.com/sam-sasha/otus_observability/blob/main/TICK-1/install-wordpress.md
+ 

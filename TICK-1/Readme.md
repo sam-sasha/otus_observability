@@ -13,7 +13,27 @@
 
    ## Решение
 
- Устанавливаем LEMP по инструкции  https://github.com/sam-sasha/otus_observability/blob/main/TICK-1/install-wordpress.md
+ 1)   Устанавливаем LEMP по инструкции  https://github.com/sam-sasha/otus_observability/blob/main/TICK-1/install-wordpress.md
+    
 
- Устанавливаем телеграф агента по инструкции https://www.influxdata.com/downloads/
+ 2) Устанавливаем телеграф агента по инструкции https://www.influxdata.com/downloads/
+![Alt text](../img/telegrafsetup.jpg?raw=true "telegrafsetup")
+
+ 3) На дополнительной виртуальной машине установите Influxdb, Chronograf, Kapacitor, Telegraf
+    docker_compose.yaml
+    ````
+    docker compose up -d
+    ````
+    
+
+ 4) Настраиваем отправку метрик отправку метрик в InfluxDB.
+![Alt text](../img/influx-connection.jpg?raw=true "influx-connection")
+![Alt text](../img/systembucket.jpg?raw=true "systembucket")
+
+5) Создаем сводный дашборд с самыми на наш взгляд важными графиками, которые позволяют оценить работоспостобность CMS;
+   
+ ![Alt text](../img/system.jpg?raw=true "system")
+ ![Alt text](../img/nginx.jpg?raw=true "nginx")
+ ![Alt text](../img/mysql.jpg?raw=true "mysql")
+ 
  

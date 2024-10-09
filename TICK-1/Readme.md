@@ -32,7 +32,7 @@
 
 5) Создаем сводный дашборд с самыми на наш взгляд важными графиками, которые позволяют оценить работоспостобность CMS;
    
- ![Alt text](../img/system.jpg?raw=true "system")
+ ![Alt text](../img/system1.jpg?raw=true "system1")
  ![Alt text](../img/nginx.jpg?raw=true "nginx")
  ![Alt text](../img/mysql.jpg?raw=true "mysql")
  
